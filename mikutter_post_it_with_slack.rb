@@ -19,7 +19,7 @@ Plugin.create :post_it_with_slack do
     icon: Skin[:post],
     role: :postbox
   ) do |opt|
-    text = ::Plugin.create(:gtk).widgetof(opt.widget).widget_post.buffer.text
+    text = ::Plugin.create(:gtk3).widgetof(opt.widget).widget_post.buffer.text
     opt.widget.post_it!(world: opt.world) # Twitterへの投稿成功を判定していないのでSlackだけに投稿されることがあります
     slack.post text
   end
